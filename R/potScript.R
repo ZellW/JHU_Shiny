@@ -11,9 +11,9 @@ data <- tbl_df((rawData))
 data <- select(data, -c(HighQN, MedQN, LowQN))
 
 
-data$date <- as.Date(format(data$date, format = "%B%Y")) #change to character from date class
+#data$date <- as.Date(format(data$date, format = "%B%Y")) #change to character from date class
 
-data$date = as.Date(as.character(data$date), format="%B%Y")
+#data$date = as.Date(as.character(data$date), format="%B%Y")
 data$Month <- as.Date(cut(data$date, breaks = "month"))
 data$Week <- as.Date(cut(data$date, breaks = "week", start.on.monday = TRUE)) # changes weekly break point to Sunday
 
@@ -25,11 +25,11 @@ monthplot <- ggplot(data = data, aes(Month, HighQ)) +
   stat_summary(fun.y = mean, geom = "line") +
   scale_x_date(breaks = date_breaks("3 month"), labels = date_format("%m-%Y")) +
   labs(y = "Marijuana Aver Monthly Price")
-
-
-
+monthplot = monthplot + geom_smooth(colour = "red")
 
 monthplot
+
+
 
 p = ggplot(data = data_MD, aes(x = MonthYear, y = meanprice)) + geom_line()
 #p = p + geom_point(alpha = .05) # add points
