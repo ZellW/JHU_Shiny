@@ -4,14 +4,14 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       h2("State Selection"),
-      selectInput("var", 
+      selectInput("varState", 
             label = "Choose a variable to display",
             choices = list("North Carolina", "Maryland",
                                  "Arizona", "Pennsylvannia"),
             selected = "North Carolina"),
       
-      sliderInput("range", label = "Date Range",
-                  min = 2013, max = 2015, value = c(0, 100)),
+     dateRangeInput("dateRange", label = "Date Range", min = "2013-12-01", max = "2015-05-01", 
+          format="M-yy", start = "2013-12-01", end = "2015-07-01", separator= "-"),
       
       br(),
       br(),
@@ -20,5 +20,6 @@ shinyUI(fluidPage(
       img(src = "pot.jpg", height = 72, width = 72)
     ),      
   mainPanel(
-    h3("Graph by State")
+    h3("Graph by State"),
+    plotOutput("mainPlot")
 ))))

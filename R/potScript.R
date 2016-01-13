@@ -21,10 +21,10 @@ data_MD <- filter(data, State=="Maryland")
 
 # graph by month:
 
-monthplot <- ggplot(data = data, aes(Month, HighQ)) +
+monthplot <- ggplot(data = data, aes(Week, HighQ)) +
   stat_summary(fun.y = mean, geom = "line") +
-  scale_x_date(breaks = date_breaks("3 month"), labels = date_format("%m-%Y")) +
-  labs(y = "Marijuana Aver Monthly Price")
+  scale_x_date(breaks = date_breaks("8 week"), labels = date_format("%m-%Y")) +
+  labs(y = "Marijuana Ave Price")
 monthplot = monthplot + geom_smooth(colour = "red")
 
 monthplot
