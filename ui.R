@@ -5,7 +5,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       h2("State Selection"),
       selectInput("varState", 
-            label = "Choose a variable to display",
+            label = "Choose a State",
             choices = list("North Carolina", "Maryland",
                                  "Arizona", "Pennsylvannia"),
             selected = "North Carolina"),
@@ -21,5 +21,7 @@ shinyUI(fluidPage(
     ),      
   mainPanel(
     h3("Graph by State"),
-    plotOutput("mainPlot")
+    plotOutput("mainPlot"),
+    textOutput("varState")
+    
 ))))
