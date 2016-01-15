@@ -14,14 +14,13 @@ shinyUI(fluidPage(
       radioButtons("censusyear", "Census Year", c(2000, 2010))
 
     ),
-    
 
     mainPanel(
 
       h4(verbatimTextOutput("summary")),
       
       h4("Selected Census Data"),
-      tableOutput("view")
+      DT::dataTableOutput("view")
     )
   )
 ))
