@@ -14,16 +14,21 @@ shinyUI(fluidPage(
       radioButtons("censusyear", "Census Year", c(2000, 2010)),
       br(),
       br(),
-      includeHTML("datanotes_reg.html")
+      includeHTML("interesting.html")
       ),
-
 
     mainPanel(
 
+      tabsetPanel(
+      
       h4("Selected Census Data"),
-      DT::dataTableOutput("view"),
-      plotOutput("dataplot")
-
+      tabPanel("Data Table", DT::dataTableOutput("view"), value="thistab"),
+      tabPanel("Census Plot", plotOutput("dataplot")),
+      tabPanel("How To", includeMarkdown("datanotes_reg.Rmd")),
+      selected = "thistab"
+      
+      )
+      
     )
   )
 ))

@@ -2,6 +2,8 @@ library(shiny)
 library(datasets)
 library(dplyr)
 
+options(encoding = "UTF-8") #required to avoid: warning in readLines(con) incomplete final line
+
 #need to consider http://shiny.rstudio.com/articles/datatables.html
 options("scipen"=100)
 cen_reg_2000 <- read.csv("../shiny2/CensusRegions2000.csv", header = TRUE)
@@ -49,6 +51,7 @@ popdataInput<-reactive({
   }
 })
 
+
 basenameInput<-reactive({
   if(input$dataset=="Census Regions"){
     basename=basename_reg
@@ -61,8 +64,12 @@ basenameInput<-reactive({
   output$view <- DT::renderDataTable({
     DT::datatable(datasetInput(), options=list(searching=FALSE, paging=FALSE, rownames=FALSE))
   })
-  
-  output$dataplot <- renderPlot(barplot(popdataInput(), names.arg = basenameInput(),  ylab="Population Growth %", 
-                    col="#7FFFD4", border = "#7FFFD4", las=2))  
 
+    
+  output$dataplot <- renderPlot(height=500,{
+    par(mar=c(8.3, 4.1, 2, 1))
+    barplot(popdataInput(), names.arg = basenameInput(),  
+                    main = "Population Change Between 2000 & 2010", ylab="Population Growth %", 
+                    col="#7FFFD4", border = "#7FFFD4", las=2) 
+})
 })
