@@ -11,16 +11,19 @@ shinyUI(fluidPage(
       selectInput("dataset", "Choose a dataset:", 
                   choices = c("Census Regions", "Census Divisions")),
       
-      radioButtons("censusyear", "Census Year", c(2000, 2010))
+      radioButtons("censusyear", "Census Year", c(2000, 2010)),
+      br(),
+      br(),
+      includeHTML("datanotes_reg.html")
+      ),
 
-    ),
 
     mainPanel(
 
-      h4(verbatimTextOutput("summary")),
-      
       h4("Selected Census Data"),
-      DT::dataTableOutput("view")
+      DT::dataTableOutput("view"),
+      plotOutput("dataplot")
+
     )
   )
 ))
