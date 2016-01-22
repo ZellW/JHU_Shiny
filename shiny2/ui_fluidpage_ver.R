@@ -2,13 +2,13 @@ library(shiny)
 library("shinythemes")
 
 # Define UI for dataset viewer application
-shinyUI(fixedPage(theme = shinytheme("Flatly"),
+shinyUI(fluidPage(theme = shinytheme("Flatly"),
                   
                   # Application title.
                   titlePanel("Census Data"),
                   
-                  fixedRow(
-                    column(3,
+                  sidebarLayout(
+                    sidebarPanel(
                       selectInput("dataset", "Choose a dataset:", 
                                   choices = c("Census Regions", "Census Divisions")),
                       
@@ -18,14 +18,14 @@ shinyUI(fixedPage(theme = shinytheme("Flatly"),
                       includeHTML("interesting.html")
                     ),
                     
-                    column(9,
+                    mainPanel(
                       
                       tabsetPanel(
                         
                         h4("Selected Census Data"),
                         tabPanel("Data Table", DT::dataTableOutput("view"), value="thistab"),
                         tabPanel("Census Plot", plotOutput("dataplot")),
-                        tabPanel("How To", includeMarkdown("datanotes_reg.md")),
+                        tabPanel("How To", includeMarkdown("datanotes_reg.Rmd")),
                         selected = "thistab"
                         
                       )

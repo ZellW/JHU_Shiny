@@ -1,9 +1,4 @@
----
-title: "U.S. Census App"
-output: 
-  html_document: 
-    keep_md: yes
----
+# U.S. Census App
 
 ## Welcome to my Shiny Application
 

@@ -1,6 +1,7 @@
 library(shiny)
 library(datasets)
 library(dplyr)
+library(formattable)
 
 options(encoding = "UTF-8") #required to avoid: warning in readLines(con) incomplete final line
 
@@ -15,6 +16,31 @@ cen_reg_2000 <- select(cen_reg_2000, -c(MTFCC:REGION), -LSADC, -FUNCSTAT, -HU100
 cen_reg_2010 <- select(cen_reg_2010, -c(MTFCC:REGION), -LSADC, -FUNCSTAT, -HU100, -c(CENTLAT:INTPTLON))
 cen_div_2000 <- select(cen_div_2000, -c(MTFCC:DIVISION), -LSADC, -FUNCSTAT, -HU100, -c(CENTLAT:INTPTLON))
 cen_div_2010 <- select(cen_div_2010, -c(MTFCC:DIVISION), -LSADC, -FUNCSTAT, -HU100, -c(CENTLAT:INTPTLON))
+
+newnames_reg <- c("Base Name", "Region", "Population", "Land_Area", "Water_Area")
+newnames_div <- c("Base Name", "Division", "Population", "Land_Area", "Water_Area")
+
+names(cen_reg_2000) <- newnames_reg
+names(cen_reg_2010) <- newnames_reg
+
+names(cen_div_2000) <- newnames_div
+names(cen_div_2010) <- newnames_div
+
+cen_reg_2000$Population <- comma(cen_reg_2000$Population, 0)
+cen_reg_2000$Land_Area <- comma((cen_reg_2000$Land_Area), 0)
+cen_reg_2000$Water_Area <- comma(cen_reg_2000$Water_Area, 0)
+
+cen_reg_2010$Population <- comma(cen_reg_2010$Population, 0)
+cen_reg_2010$Land_Area <- comma((cen_reg_2010$Land_Area), 0)
+cen_reg_2010$Water_Area <- comma(cen_reg_2010$Water_Area, 0)
+
+cen_div_2000$Population <- comma(cen_div_2000$Population, 0)
+cen_div_2000$Land_Area <- comma((cen_div_2000$Land_Area), 0)
+cen_div_2000$Water_Area <- comma(cen_div_2000$Water_Area, 0)
+
+cen_div_2010$Population <- comma(cen_div_2010$Population, 0)
+cen_div_2010$Land_Area <- comma((cen_div_2010$Land_Area), 0)
+cen_div_2010$Water_Area <- comma(cen_div_2010$Water_Area, 0)
 
 basename_reg <-c("Northeast", "Midwest", "South", "West")
 pop_reg <- c(3.21, 3.94, 14.29, 13.84)
