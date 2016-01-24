@@ -2,7 +2,7 @@ library(shiny)
 library("shinythemes")
 
 # Define UI for dataset viewer application
-shinyUI(fixedPage(theme = shinytheme("Flatly"),
+shinyUI(fixedPage(theme = shinytheme("flatly"),
                   
                   # Application title.
                   titlePanel("Census Data"),

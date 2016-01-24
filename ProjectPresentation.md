@@ -1,34 +1,55 @@
-Population Changes Between 2000 & 2010 Census
+U.S. Census Population Changes: 2000 & 2010
 ========================================================
 author: Cliff Weaver
-date: Jan 17, 2016
+date: Jan 23, 2016
+transition: concave
 
 Introduction
 ========================================================
+type: prompt
 
-The 9th course in the Coursera Data Science Specialization Certification requires the following:
+To satisfy the requirements of the Coursera *Developing Data Products* Course, the 9th course in the JHU Data Science Specialization Certification, an interactive Shiny application was built.
 
-1. 5 slides to pitch our idea done in Slidify or Rstudio Presenter 
-2. Your presentation pushed to github or Rpubs
-3. A link to your github or Rpubs presentation pasted into the provided text box
-4. It must contained some embedded R code that gets run when slidifying the document
+The [Shiny application](https://zellw.shinyapps.io/shiny2/) compares the population and land/water area using data from the 2000 and 2010 U.S. Census.
 
-THe Shiny app I created compares census data between the 2000 and 2010 Census.
-
-The application can be used [here](https://zellw.shinyapps.io/shiny2/)
+This presentation introduces you to the application and how it works.
 
 What to Expect
 ========================================================
+type: prompt
 
 The default view shows the population of the 4 U.S. Regions for the 2000 Census
-![](proj1.JPG)
-This is easily changed by selecting the 2010 radio button and/or change the data to U.S. Divisions - a more granualr approach.
+
+- The user can select a different dataset (Regions or Divisions) and choose between the 2000 and 2010 Census year.
+
+- Any change the user makes will be immediately reflected.
+
+- The default view presents a table.
 
 ***
 
-![](proj2.JPG) 
+![](proj1.JPG)
 
-Slide With Plot
-========================================================
+Census Plots
+===
+type: prompt
 
+Using the tabbbed navigational controls on the top right, users can select:
+* Census Plots:  graphs showing the differences between 2000 and 2010 for Regions and Divisions
+* How To: Detailed information on the application, how to use it and where to fund more information
+Here is an example:
+
+***
+
+![](nav.JPG)
 ![plot of chunk unnamed-chunk-1](ProjectPresentation-figure/unnamed-chunk-1-1.png) 
+
+More Information
+========================================================
+type: prompt
+
+The best source of information on the application, please review:
+- The *How To* navigation tab in the [application](https://zellw.shinyapps.io/shiny2/)
+- Visit the [GitHub respository](https://github.com/ZellW/JHU_Shiny/tree/master/shiny2) to see the code used to create the application (and this presentation)
+- Visit the [Census Homepage](http://www.census.gov/data/data-tools.html)
+

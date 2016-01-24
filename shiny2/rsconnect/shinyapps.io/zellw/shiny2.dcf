@@ -1,8 +1,8 @@
 name: shiny2
 account: zellw
 server: shinyapps.io
-bundleId: 355280
+bundleId: 355995
 url: https://zellw.shinyapps.io/shiny2/
-when: 1453485297.05239
+when: 1453565002.68195
 asMultiple: FALSE
 asStatic: FALSE
